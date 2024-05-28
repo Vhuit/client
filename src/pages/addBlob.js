@@ -4,6 +4,7 @@ import { Buffer } from 'buffer';
 import axios from 'axios';
 
 // Xử lý dữ liệu và truyền vào DB
+
 function AddBlob() {
     const [file, setFile] = useState(null);
     const [fileName, setFileName] = useState("");
@@ -58,6 +59,7 @@ function AddBlob() {
     const [url, setUrl] = useState("");
 
     const handleSubmitClick = async () => {
+        var link = "";
         try {
             const metadata = {
                 "mime_type": fileType,
@@ -69,7 +71,8 @@ function AddBlob() {
                 "description": fileDescription,
                 "version": fileVersion
             }
-            const response = await axios.post("http://localhost:3001/metadata", metadata);
+            const url = 'https://testapp-vhuit-4f3e49a727b6.herokuapp.com/metadata';
+            const response = await axios.post(url, metadata);
             if (response.status !== 201) {
                 console.error("Failed to create metadata.");
                 return;
@@ -80,7 +83,7 @@ function AddBlob() {
                 "bytea": fileData
             }
             console.log(blob);
-            const blobres = await axios.post("http://localhost:3001/blob", blob);
+            const blobres = await axios.post('https://testapp-vhuit-4f3e49a727b6.herokuapp.com/blob', blob);
             if (blobres.status !== 201) {
                 console.error("Failed to create blob.");
                 return;
