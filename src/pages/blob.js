@@ -1,17 +1,16 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { Buffer } from "buffer";
 import { Card } from "react-bootstrap";
 
-function BlobHandler() {
-    var link = "https://testapp-vhuit-4f3e49a727b6.herokuapp.com/";
+function Blob() {
     const [metadata, setMetadata] = useState([]);
     const [blob, setBlob] = useState([]);
     const [completeBlob, setCompleteBlob] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios.get(`${link}metadata`);
+            const result = await axios.get(`https://testapp-vhuit-4f3e49a727b6.herokuapp.com/metadata`);
             setMetadata(result.data);
         };
         fetchData();
@@ -19,7 +18,7 @@ function BlobHandler() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios.get(`${link}blob`);
+            const result = await axios.get(`https://testapp-vhuit-4f3e49a727b6.herokuapp.com/blob`);
             setBlob(result.data);
         };
         fetchData();
@@ -110,4 +109,4 @@ function BlobHandler() {
 
 }
 
-export default BlobHandler;
+export default Blob;

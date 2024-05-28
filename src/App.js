@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Container, Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Container, Navbar, Nav } from 'react-bootstrap';
 import AddBlob from './pages/addBlob';
 import Blob from './pages/blob';
 
@@ -25,9 +25,9 @@ function App() {
           <Routes>
             <Route path="/addBlob" element={<AddBlob />} />
             <Route path="/blob" element={<Blob />} />
+            <Route path="/" element={<Blob />} />
           </Routes>
         </Router>
-
       </div>
     </div>
   );
