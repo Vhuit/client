@@ -11,7 +11,7 @@ function App() {
       <div className=" my-3">
         <h2>Nhóm 22 - Hệ Quản Trị CSDL Đa Phương Tiện</h2>
         <h3>Ứng dụng PostgreSQL xử lý thông tin đa phương tiện</h3>
-        <Router basename='blob-group-22-huit'>
+        <Router>
           <Navbar bg="dark" variant="dark text-white ">
             <Container className='container'>
               <Nav.Link href="/blob">
